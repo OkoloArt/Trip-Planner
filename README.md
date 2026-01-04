@@ -35,13 +35,27 @@ The UI was implemented based on the provided Figma design, ensuring close adhere
 
 ## 🖼️ Screenshots
 
-| Plan Trip | Create Trip | Trip List |
-|-----------|-------------|-----------|
-| ![Plan Trip](./screenshots/home.jpg) | ![Create Trip](screenshots/create_trip.png) | ![Trip List](screenshots/trip_list.png) |
+<div align="center">
 
-| Trip Details | Date Screen | WhereTo |
-|--------------|-------------|-------------|
-| ![Trip Details](screenshots/trip_details.png) | ![Error State](screenshots/error_state.png) | ![Empty State](screenshots/empty_state.png) |
+### Plan Trip
+<img src="https://i.imgur.com/6FRrZkf.jpeg" width="250" alt="Plan Trip"/>
+
+### Create Trip
+<img src="https://i.imgur.com/XXXXX.jpeg" width="250" alt="Create Trip"/>
+
+### Trip List
+<img src="https://i.imgur.com/XXXXX.jpeg" width="250" alt="Trip List"/>
+
+### Trip Details
+<img src="https://i.imgur.com/XXXXX.jpeg" width="250" alt="Trip Details"/>
+
+### Date Screen
+<img src="https://i.imgur.com/XXXXX.jpeg" width="250" alt="Date Screen"/>
+
+### Where To
+<img src="https://i.imgur.com/XXXXX.jpeg" width="250" alt="Where To"/>
+
+</div>
 
 > 📌 Screenshots are located in the `/screenshots` directory.
 
