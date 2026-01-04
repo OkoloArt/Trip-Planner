@@ -1,6 +1,6 @@
 package com.death.goplan.ui.screens
 
-import android.R
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -41,6 +41,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.death.goplan.R
 import com.death.goplan.viewmodel.TripViewModel
 import java.text.SimpleDateFormat
 import java.time.Instant
@@ -83,7 +84,7 @@ fun DateScreen(
                             onClick = { navController?.popBackStack() }
                         ) {
                             Icon(
-                                painter = painterResource(id = R.drawable.ic_menu_close_clear_cancel),
+                                painter = painterResource(id = R.drawable.close_24),
                                 contentDescription = ""
                             )
                         }

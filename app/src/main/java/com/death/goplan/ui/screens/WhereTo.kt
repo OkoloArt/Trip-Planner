@@ -79,7 +79,7 @@ fun WhereToScreen(
                         )
                     },
                     navigationIcon = {
-                        IconButton(onClick = onCloseClick) {
+                        IconButton(onClick = {navigation!!.popBackStack()}) {
                             Icon(
                                 imageVector = Icons.Default.Close,
                                 contentDescription = "Close",
