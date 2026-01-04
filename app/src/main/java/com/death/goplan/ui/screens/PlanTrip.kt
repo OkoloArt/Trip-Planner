@@ -17,7 +17,6 @@ import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -61,8 +60,8 @@ import com.death.goplan.ui.component.CreateTripCard
 import com.death.goplan.ui.component.CreateTripStatusDialog
 import com.death.goplan.ui.component.TripListItem
 import com.death.goplan.utils.ApiResult
-import com.death.goplan.viewmodel.CreateTripUiState
-import com.death.goplan.viewmodel.TripViewModel
+import com.death.goplan.ui.viewmodel.CreateTripUiState
+import com.death.goplan.ui.viewmodel.TripViewModel
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale

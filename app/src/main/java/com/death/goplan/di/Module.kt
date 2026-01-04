@@ -1,10 +1,9 @@
 package com.death.goplan.di
 
-import android.content.Context
 import com.death.goplan.data.repository.TripRepo
 import com.death.goplan.data.repository.TripRepoImpl
-import com.death.goplan.network.TripService
-import com.death.goplan.network.mainHttpClient
+import com.death.goplan.data.network.TripService
+import com.death.goplan.data.network.mainHttpClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

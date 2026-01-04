@@ -37,12 +37,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.death.goplan.R
-import com.death.goplan.viewmodel.TripViewModel
+import com.death.goplan.ui.viewmodel.TripViewModel
 import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.LocalDate

@@ -1,7 +1,7 @@
 package com.death.goplan.data.repository
 
 import com.death.goplan.data.model.TripDto
-import com.death.goplan.network.TripService
+import com.death.goplan.data.network.TripService
 import com.death.goplan.utils.ApiResult
 import javax.inject.Inject
 

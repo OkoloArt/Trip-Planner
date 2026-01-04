@@ -35,7 +35,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.death.goplan.ui.screens.parseDateStringToMillis
-import com.death.goplan.viewmodel.TripUiState
+import com.death.goplan.ui.viewmodel.TripUiState
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale

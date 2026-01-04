@@ -33,28 +33,32 @@ https://www.figma.com/design/QomXDEA1WE6pDJFhMcPqyt/Task-UI?node-id=1-5512
 
 ## 🖼️ Screenshots
 
-| Plan Trip | Create Trip | Trip List |
-|---------|------------|-----------|
-| ![Plan Trip](screenshots/plan_trip.png) | ![Create Trip](screenshots/create_trip.png) | ![Trip List](screenshots/trip_list.png) |
+<div align="center">
 
-| Trip Details | Error State | Empty State |
-|-------------|------------|-------------|
-| ![Trip Details](screenshots/trip_details.png) | ![Error State](screenshots/error_state.png) | ![Empty State](screenshots/empty_state.png) |
+<img src="./screenshots/home.jpg" width="200" alt="Plan Trip"/>
+<img src="./screenshots/createTrip.jpg" width="200" alt="Create Trip"/>
+<img src="./screenshots/whereto.jpg" width="200" alt="Trip List"/>
 
-> 📌 Screenshots are located in the `/screenshots` directory.
+<img src="./screenshots/date.jpg" width="200" alt="Trip Details"/>
+<img src="./screenshots/details.jpg" width="200" alt="Error State"/>
+<img src="./screenshots/details2.jpg" width="200" alt="Empty State"/>
+
+</div>
 
 ---
 
 ## 🎥 Screen Recording
 
-A short screen recording demonstrating:
-- Creating a trip
-- Viewing trips
-- Filtering by travel style
-- Error and loading states
+<div align="center">
+  <video src="./screenshots/demo.mp4" width="600" height="400" controls></video>
+</div>
 
-📽️ **Screen Recording Link:**  
-👉 _Add your screen recording link here (Google Drive / YouTube / GitHub)_
+**Features demonstrated:**
+- Creating a new trip
+- Viewing all trips
+- Filtering by travel style
+- Viewing trip details
+- Loading and error states
 
 ---
 
@@ -72,35 +76,36 @@ A short screen recording demonstrating:
 ---
 
 ## 📦 Project Structure
-
+```
 com.example.tripplanner
 │
 ├── data
-│ ├── model # DTOs and request models
-│ ├── remote # API services
-│ └── repository # Data repositories
+│   ├── model          # DTOs and request models
+│   ├── remote         # API services
+│   └── repository     # Data repositories
 │
 ├── ui
-│ ├── screens # Compose screens
-│ ├── components # Reusable UI components
-│ └── theme # Colors, typography, shapes
+│   ├── screens        # Compose screens
+│   ├── components     # Reusable UI components
+│   ├── theme          # Colors, typography, shapes
+│   └── viewmodels     # ViewModels
 │
-├── viewmodel # ViewModels
+├── navigation         # NavGraph
 │
-└── utils # Helpers & extensions
-
+└── utils              # Helpers & extensions
+```
 
 ---
 
 ## 🌐 API Integration
 
 🔗 **API Base URL:**  
-https://beeceptor.com/crud-api/
+`https://beeceptor.com/crud-api/`
 
 ### Endpoints Used
 
 | Action | Method | Endpoint |
-|------|-------|---------|
+|--------|--------|----------|
 | Create Trip | POST | `/trips` |
 | Get All Trips | GET | `/trips` |
 | Get Trip By ID | GET | `/trips/{id}` |
@@ -112,29 +117,47 @@ https://beeceptor.com/crud-api/
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Android Studio Hedgehog or newer
 - Android SDK 24+
 - Internet connection
 
 ### Setup Instructions
-
 ```bash
+# Clone the repository
 git clone https://github.com/your-username/trip-planner.git
 
+# Open the project in Android Studio
+# Sync Gradle
+# Run on emulator or physical device
+```
 
-Open the project in Android Studio
+---
 
-Sync Gradle
+## 📦 APK
 
-Run on emulator or physical device
+📥 **APK Download:**  
+[Download APK](#)
 
-📦 APK
+---
 
-📥 APK Download:
-👉 Add your APK link here (Google Drive / GitHub Releases)
+## 👨‍💻 Author
 
-👨‍💻 Author
-
-Okolo Arthur
+**Okolo Arthur**  
 Android Developer
-🔗 GitHub: https://github.com/your-username
+
+🔗 [GitHub Profile](https://github.com/your-username)
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- Figma design team for the UI specifications
+- Interview assessment team for the opportunity
+```

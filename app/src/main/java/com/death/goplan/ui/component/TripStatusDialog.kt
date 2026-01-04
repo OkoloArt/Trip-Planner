@@ -26,9 +26,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import com.death.goplan.R
-import com.death.goplan.data.model.TripDto
-import com.death.goplan.utils.ApiResult
-import com.death.goplan.viewmodel.CreateTripUiState
+import com.death.goplan.ui.viewmodel.CreateTripUiState
 import kotlinx.coroutines.delay
 
 @Composable

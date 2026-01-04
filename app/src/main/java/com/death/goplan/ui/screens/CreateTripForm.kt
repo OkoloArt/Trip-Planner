@@ -40,7 +40,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.death.goplan.R
 import com.death.goplan.ui.theme.TripDimens
-import com.death.goplan.viewmodel.TripViewModel
+import com.death.goplan.ui.viewmodel.TripViewModel
 
 @Composable
 fun CreateTripFormScreen(
