@@ -7,13 +7,13 @@ The app closely follows the provided **Figma UI design** and integrates with a *
 
 ## 📱 Features
 
-- 📋 View all planned trips
-- ➕ Create a new trip
-- 🔍 View trip details
-- 🎨 Pixel-perfect UI based on Figma design
-- 🌐 API integration for CRUD operations
-- 🔄 Loading, success, and error state handling
-- 🧠 Clean architecture with state-driven UI
+- View all planned trips
+- Create a new trip
+- View trip details
+- Pixel-perfect UI based on Figma design
+- API integration for CRUD operations
+- Loading, success, and error state handling
+- Clean architecture with state-driven UI
 
 ---
 
@@ -28,6 +28,33 @@ The UI was implemented based on the provided Figma design, ensuring close adhere
 
 🔗 **Figma Design:**  
 https://www.figma.com/design/QomXDEA1WE6pDJFhMcPqyt/Task-UI?node-id=1-5512
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Android Studio Hedgehog or newer
+- Android SDK 24+
+- Internet connection
+
+### Setup Instructions
+```bash
+# Clone the repository
+git clone https://github.com//OkoloArt//trip-planner.git
+
+# Open the project in Android Studio
+# Sync Gradle
+# Run on emulator or physical device
+```
+
+---
+
+## 📦 APK
+
+📥 **APK Download:**  
+[Download APK](#)
 
 ---
 
@@ -50,7 +77,7 @@ https://www.figma.com/design/QomXDEA1WE6pDJFhMcPqyt/Task-UI?node-id=1-5512
 ## 🎥 Screen Recording
 
 <div align="center">
-  <video src="./screenshots/demo.mp4" width="600" height="400" controls></video>
+  <video src="https://github.com/user-attachments/assets/80d336c1-7851-48ad-8e99-6a83e2d7188b" width="350" controls></video>
 </div>
 
 **Features demonstrated:**
@@ -109,35 +136,6 @@ com.example.tripplanner
 | Create Trip | POST | `/trips` |
 | Get All Trips | GET | `/trips` |
 | Get Trip By ID | GET | `/trips/{id}` |
-| Update Trip | PUT | `/trips/{id}` |
-| Delete Trip | DELETE | `/trips/{id}` |
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Android Studio Hedgehog or newer
-- Android SDK 24+
-- Internet connection
-
-### Setup Instructions
-```bash
-# Clone the repository
-git clone https://github.com/your-username/trip-planner.git
-
-# Open the project in Android Studio
-# Sync Gradle
-# Run on emulator or physical device
-```
-
----
-
-## 📦 APK
-
-📥 **APK Download:**  
-[Download APK](#)
 
 ---
 
@@ -146,7 +144,7 @@ git clone https://github.com/your-username/trip-planner.git
 **Okolo Arthur**  
 Android Developer
 
-🔗 [GitHub Profile](https://github.com/your-username)
+🔗 [GitHub Profile](https://github.com//OkoloArt)
 
 ---
 
@@ -160,4 +158,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Figma design team for the UI specifications
 - Interview assessment team for the opportunity
-```
