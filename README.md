@@ -1,3 +1,4 @@
+```markdown
 # ✈️ Trip Planner – Android App
 
 An Android application that allows users to **create, view, and manage trips**, built as part of an Android Developer interview assessment.  
@@ -7,19 +8,20 @@ The app closely follows the provided **Figma UI design** and integrates with a *
 
 ## 📱 Features
 
-- 📋 View all planned trips
-- ➕ Create a new trip
-- 🔍 View trip details
-- 🎨 Pixel-perfect UI based on Figma design
-- 🌐 API integration for CRUD operations
-- 🔄 Loading, success, and error state handling
-- 🧠 Clean architecture with state-driven UI
+- View all planned trips
+- Create a new trip
+- View trip details
+- Pixel-perfect UI based on Figma design
+- API integration for CRUD operations
+- Loading, success, and error state handling
+- Clean architecture with state-driven UI
 
 ---
 
 ## 🎨 UI Design
 
 The UI was implemented based on the provided Figma design, ensuring close adherence to:
+
 - Spacing
 - Typography
 - Colors
@@ -27,18 +29,18 @@ The UI was implemented based on the provided Figma design, ensuring close adhere
 - Component behavior
 
 🔗 **Figma Design:**  
-https://www.figma.com/design/QomXDEA1WE6pDJFhMcPqyt/Task-UI?node-id=1-5512
+[View Design](https://www.figma.com/design/QomXDEA1WE6pDJFhMcPqyt/Task-UI?node-id=1-5512)
 
 ---
 
 ## 🖼️ Screenshots
 
 | Plan Trip | Create Trip | Trip List |
-|---------|------------|-----------|
-| ![Plan Trip](screenshots/plan_trip.png) | ![Create Trip](screenshots/create_trip.png) | ![Trip List](screenshots/trip_list.png) |
+|-----------|-------------|-----------|
+| ![Plan Trip](./screenshots/home.jpg) | ![Create Trip](screenshots/create_trip.png) | ![Trip List](screenshots/trip_list.png) |
 
-| Trip Details | Error State | Empty State |
-|-------------|------------|-------------|
+| Trip Details | Date Screen | WhereTo |
+|--------------|-------------|-------------|
 | ![Trip Details](screenshots/trip_details.png) | ![Error State](screenshots/error_state.png) | ![Empty State](screenshots/empty_state.png) |
 
 > 📌 Screenshots are located in the `/screenshots` directory.
@@ -48,6 +50,7 @@ https://www.figma.com/design/QomXDEA1WE6pDJFhMcPqyt/Task-UI?node-id=1-5512
 ## 🎥 Screen Recording
 
 A short screen recording demonstrating:
+
 - Creating a trip
 - Viewing trips
 - Filtering by travel style
@@ -73,45 +76,46 @@ A short screen recording demonstrating:
 
 ## 📦 Project Structure
 
+```
 com.example.tripplanner
 │
 ├── data
-│ ├── model # DTOs and request models
-│ ├── remote # API services
-│ └── repository # Data repositories
+│   ├── model          # DTOs and request models
+│   ├── remote         # API services
+│   └── repository     # Data repositories
 │
 ├── ui
-│ ├── screens # Compose screens
-│ ├── components # Reusable UI components
-│ └── theme # Colors, typography, shapes
+│   ├── screens        # Compose screens
+│   ├── components     # Reusable UI components
+│   └── theme          # Colors, typography, shapes
+│   └── viewmodels     # Viewmodels
 │
-├── viewmodel # ViewModels
+├── navigation         # NavGraph
 │
-└── utils # Helpers & extensions
-
+└── utils              # Helpers & extensions
+```
 
 ---
 
 ## 🌐 API Integration
 
 🔗 **API Base URL:**  
-https://beeceptor.com/crud-api/
+`https://beeceptor.com/crud-api/`
 
 ### Endpoints Used
 
 | Action | Method | Endpoint |
-|------|-------|---------|
+|--------|--------|----------|
 | Create Trip | POST | `/trips` |
 | Get All Trips | GET | `/trips` |
 | Get Trip By ID | GET | `/trips/{id}` |
-| Update Trip | PUT | `/trips/{id}` |
-| Delete Trip | DELETE | `/trips/{id}` |
 
 ---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Android Studio Hedgehog or newer
 - Android SDK 24+
 - Internet connection
@@ -119,22 +123,40 @@ https://beeceptor.com/crud-api/
 ### Setup Instructions
 
 ```bash
+# Clone the repository
 git clone https://github.com/your-username/trip-planner.git
 
+# Open the project in Android Studio
+# Sync Gradle
+# Run on emulator or physical device
+```
 
-Open the project in Android Studio
+---
 
-Sync Gradle
+## 📦 APK
 
-Run on emulator or physical device
+📥 **APK Download:**  
+👉 _Add your APK link here (Google Drive / GitHub Releases)_
 
-📦 APK
+---
 
-📥 APK Download:
-👉 Add your APK link here (Google Drive / GitHub Releases)
+## 👨‍💻 Author
 
-👨‍💻 Author
-
-Okolo Arthur
+**Okolo Arthur**  
 Android Developer
-🔗 GitHub: https://github.com/your-username
+
+🔗 [GitHub Profile](https://github.com/your-username)
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- Figma design team for the UI specifications
+- Interview assessment team for the opportunity
+```
