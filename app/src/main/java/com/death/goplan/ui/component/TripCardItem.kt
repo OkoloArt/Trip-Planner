@@ -1,5 +1,7 @@
 package com.death.goplan.ui.component
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -34,9 +36,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.death.goplan.ui.screens.parseDateStringToMillis
 import com.death.goplan.ui.viewmodel.TripUiState
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 import java.util.Date
 import java.util.Locale
 
@@ -44,6 +48,7 @@ enum class SelectedField {
     CITY, START_DATE, END_DATE, NONE
 }
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun CreateTripCard(
     uiState: TripUiState = TripUiState(),
@@ -126,6 +131,30 @@ fun CreateTripCard(
     }
 }
 
+@RequiresApi(Build.VERSION_CODES.O)
+fun parseDateStringToMillis(date: String?): Long? {
+    if (date.isNullOrBlank()) return null
+
+    return try {
+        // Remove ordinal suffixes: 1st, 2nd, 3rd, 4th...
+        val cleanedDate = date.replace(
+            Regex("(\\d+)(st|nd|rd|th)"),
+            "$1"
+        )
+
+        val formatter = DateTimeFormatter.ofPattern("d MMM yyyy", Locale.ENGLISH)
+        val localDate = LocalDate.parse(cleanedDate, formatter)
+
+        localDate
+            .atStartOfDay(ZoneId.systemDefault())
+            .toInstant()
+            .toEpochMilli()
+
+    } catch (e: Exception) {
+        null
+    }
+}
+
 
 fun formatDate(millis: Long): String {
     val formatter = SimpleDateFormat("EEE, MMM d", Locale.getDefault())
@@ -183,10 +212,10 @@ fun SelectionInput(
     }
 }
 
-@Preview(showBackground = true, backgroundColor = 0xFFF3F4F6)
-@Composable
-fun CreateTripCardPreview() {
-    Box(modifier = Modifier.padding(16.dp)) {
-        CreateTripCard()
-    }
-}
+//@Preview(showBackground = true, backgroundColor = 0xFFF3F4F6)
+//@Composable
+//fun CreateTripCardPreview() {
+//    Box(modifier = Modifier.padding(16.dp)) {
+//        CreateTripCard()
+//    }
+//}

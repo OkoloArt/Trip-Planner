@@ -1,6 +1,7 @@
 package com.death.goplan.ui.screens
 
-
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -18,8 +19,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.CalendarToday
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.DatePickerDefaults
-import androidx.compose.material3.DateRangePicker
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -29,10 +28,12 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material3.rememberDateRangePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -40,15 +41,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.death.goplan.R
+import com.death.goplan.ui.component.CustomDateRangePicker
 import com.death.goplan.ui.viewmodel.TripViewModel
-import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
-import java.util.Date
 import java.util.Locale
 
+@RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DateScreen(
@@ -59,10 +60,13 @@ fun DateScreen(
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
-    val dateRangePickerState = rememberDateRangePickerState(
-        initialSelectedStartDateMillis = parseDateStringToMillis(uiState.startDate),
-        initialSelectedEndDateMillis = parseDateStringToMillis(uiState.endDate)
-    )
+    // Initialize local state for the custom picker from ViewModel
+    var startDate by remember(uiState.startDate) { 
+        mutableStateOf(parseDateStringToLocalDate(uiState.startDate)) 
+    }
+    var endDate by remember(uiState.endDate) { 
+        mutableStateOf(parseDateStringToLocalDate(uiState.endDate)) 
+    }
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -113,25 +117,17 @@ fun DateScreen(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
-                    val startDate = dateRangePickerState.selectedStartDateMillis
-                        ?.let { formatDate(it) }
-                        ?: uiState.startDate
-                        ?: "Select Date"
-
+                    val startDisplay = startDate?.let { formatDate(it) } ?: "Select Date"
                     DateInputBox(
                         label = "Start Date",
-                        value = startDate,
+                        value = startDisplay,
                         modifier = Modifier.weight(1f)
                     )
 
-                    val endDate = dateRangePickerState.selectedEndDateMillis
-                        ?.let { formatDate(it) }
-                        ?: uiState.endDate
-                        ?: "Select Date"
-
+                    val endDisplay = endDate?.let { formatDate(it) } ?: "Select Date"
                     DateInputBox(
                         label = "End Date",
-                        value = endDate,
+                        value = endDisplay,
                         modifier = Modifier.weight(1f)
                     )
                 }
@@ -140,17 +136,23 @@ fun DateScreen(
 
                 Button(
                     onClick = {
-                        viewModel.updateDateRange(
-                            startDate = dateRangePickerState.selectedStartDateMillis!!.toReadableDateWithSuffix(),
-                            endDate = dateRangePickerState.selectedEndDateMillis!!.toReadableDateWithSuffix()
-                        )
-                        onChooseDateClick()
+                        if (startDate != null && endDate != null) {
+                             viewModel.updateDateRange(
+                                startDate = startDate!!.toReadableDateWithSuffix(),
+                                endDate = endDate!!.toReadableDateWithSuffix()
+                            )
+                            onChooseDateClick()
+                        }
                     },
+                    enabled = startDate != null && endDate != null,
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(48.dp),
                     shape = RoundedCornerShape(8.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF0D6EFD))
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFF0D6EFD),
+                        disabledContainerColor = Color(0xFF0D6EFD).copy(alpha = 0.5f)
+                    )
                 ) {
                     Text(
                         text = "Choose Date",
@@ -164,39 +166,30 @@ fun DateScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(
-                    top = 8.dp,
-                    bottom = innerPadding.calculateBottomPadding()
-                )
+                .padding(innerPadding)
         ) {
-            DateRangePicker(
-                state = dateRangePickerState,
-                showModeToggle = false,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(Color.White),
-                headline = { Box(modifier = Modifier.height(1.dp)) {} },
-                title = { Box(modifier = Modifier.height(1.dp)) {} },
-                colors = DatePickerDefaults.colors(
-                    containerColor = Color.White,
-                    selectedDayContainerColor = MaterialTheme.colorScheme.primary,
-                    selectedDayContentColor = Color.White,
-                    dayInSelectionRangeContainerColor = Color(0xFFE7F0FF),
-                    dayInSelectionRangeContentColor = Color(0xFF0D6EFD),
-                    todayDateBorderColor = MaterialTheme.colorScheme.primary
-                )
+            CustomDateRangePicker(
+                modifier = Modifier.fillMaxWidth(),
+                startDate = startDate,
+                endDate = endDate,
+                onDateRangeSelected = { newStart, newEnd ->
+                    startDate = newStart
+                    endDate = newEnd
+                }
             )
         }
     }
 }
 
 
-fun formatDate(millis: Long): String {
-    val formatter = SimpleDateFormat("EEE, MMM d", Locale.getDefault())
-    return formatter.format(Date(millis))
+@RequiresApi(Build.VERSION_CODES.O)
+fun formatDate(date: LocalDate): String {
+    val formatter = DateTimeFormatter.ofPattern("EEE, MMM d", Locale.getDefault())
+    return date.format(formatter)
 }
 
-fun parseDateStringToMillis(date: String?): Long? {
+@RequiresApi(Build.VERSION_CODES.O)
+fun parseDateStringToLocalDate(date: String?): LocalDate? {
     if (date.isNullOrBlank()) return null
 
     return try {
@@ -205,28 +198,21 @@ fun parseDateStringToMillis(date: String?): Long? {
             Regex("(\\d+)(st|nd|rd|th)"),
             "$1"
         )
-
+        // Assume default format "d MMM yyyy" from toReadableDateWithSuffix
+        // If the stored format is different, adjust here.
+        // Previously used DateTimeFormatter.ofPattern("d MMM yyyy", Locale.ENGLISH)
         val formatter = DateTimeFormatter.ofPattern("d MMM yyyy", Locale.ENGLISH)
-        val localDate = LocalDate.parse(cleanedDate, formatter)
-
-        localDate
-            .atStartOfDay(ZoneId.systemDefault())
-            .toInstant()
-            .toEpochMilli()
-
+        LocalDate.parse(cleanedDate, formatter)
     } catch (e: Exception) {
         null
     }
 }
 
 
-fun Long.toReadableDateWithSuffix(): String {
+@RequiresApi(Build.VERSION_CODES.O)
+fun LocalDate.toReadableDateWithSuffix(): String {
     return try {
-        val date = Instant.ofEpochMilli(this)
-            .atZone(ZoneId.systemDefault())
-            .toLocalDate()
-
-        val day = date.dayOfMonth
+        val day = this.dayOfMonth
         val suffix = when {
             day in 11..13 -> "th" // special case for 11,12,13
             day % 10 == 1 -> "st"
@@ -235,7 +221,7 @@ fun Long.toReadableDateWithSuffix(): String {
             else -> "th"
         }
 
-        val monthYear = date.format(DateTimeFormatter.ofPattern("MMM yyyy"))
+        val monthYear = this.format(DateTimeFormatter.ofPattern("MMM yyyy"))
         "$day$suffix $monthYear" // e.g., "10th Aug 2024"
     } catch (e: Exception) {
         "" // fallback
@@ -245,7 +231,7 @@ fun Long.toReadableDateWithSuffix(): String {
 @Composable
 fun DateInputBox(
     label: String,
-    value: String?,
+    value: String,
     modifier: Modifier = Modifier
 ) {
     Column(modifier = modifier) {
@@ -267,7 +253,7 @@ fun DateInputBox(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
-                    text = value!!,
+                    text = value,
                     style = MaterialTheme.typography.bodyMedium,
                     color = Color.Black
                 )

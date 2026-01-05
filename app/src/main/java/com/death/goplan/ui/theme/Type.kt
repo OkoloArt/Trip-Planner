@@ -11,7 +11,8 @@ import com.death.goplan.R
 val SatoshiFontFamily = FontFamily(
     Font(R.font.satoshi_regular, FontWeight.Normal),
     Font(R.font.satoshi_medium, FontWeight.Medium),
-    Font(R.font.satoshi_bold, FontWeight.Bold)
+    Font(R.font.satoshi_bold, FontWeight.Bold),
+    Font(R.font.satoshi_black, FontWeight.Black)
 )
 
 // Set of Material typography styles to start with
