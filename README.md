@@ -54,7 +54,7 @@ git clone https://github.com//OkoloArt//trip-planner.git
 ## 📦 APK
 
 📥 **APK Download:**  
-[Download APK](#)
+[Download APK](https://drive.google.com/file/d/1chjuSA5R2mpLpyEbhrCrusQr_CDSz3Bp/view?usp=drive_link)
 
 ---
 
