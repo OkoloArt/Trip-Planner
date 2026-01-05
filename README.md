@@ -66,7 +66,7 @@ git clone https://github.com//OkoloArt//trip-planner.git
 <img src="./screenshots/createTrip.jpg" width="200" alt="Create Trip"/>
 <img src="./screenshots/whereto.jpg" width="200" alt="Trip List"/>
 
-<img src="./screenshots/date.jpg" width="200" alt="Trip Details"/>
+<img src="./screenshots/date1.jpg" width="200" alt="Trip Details"/>
 <img src="./screenshots/details.jpg" width="200" alt="Error State"/>
 <img src="./screenshots/details2.jpg" width="200" alt="Empty State"/>
 
