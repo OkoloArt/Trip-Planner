@@ -77,7 +77,7 @@ git clone https://github.com//OkoloArt//trip-planner.git
 ## 🎥 Screen Recording
 
 <div align="center">
-  <video src="https://github.com/user-attachments/assets/80d336c1-7851-48ad-8e99-6a83e2d7188b" width="350" controls></video>
+  <video src="https://github.com/user-attachments/assets/ad1480d1-e87e-4404-b0c6-77675c1c84f9" width="350" controls></video>
 </div>
 
 **Features demonstrated:**
